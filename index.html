@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>與卡魯普斯的一天</title>
+<script src="jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="talk.css">
+          <style>
+    #box{
+        background-image: url(opening.jpg);
+    }
+        
+    </style>     
+    <script>
+        $(document).ready(function() {
+
+            
+var progress = 0;
+var txt;
+            
+    function eventHandler() {
+    switch (progress) {
+            
+		case 0:
+                txt = "開始歷險！";
+                break;
+            
+  		case 1:
+            
+            $("#box").css("background-image","url(illu.jpg)");
+            txt = "「這個的業績獎勵……百貨公司贈券……拿去吧。」";
+            break;
+            
+        case 2:
+            txt = "「這是甚麼嫌棄的臉……」"
+                break;
+            
+        case 3:
+                txt = "遠處：「伊路贊分局長，蘇拉分局長有事找你！」";
+                break;
+            
+        case 4:
+                txt = "「該死……」";
+                break;
+            
+  		case 5:
+                 $("#box").css("background-image","url(phone.jpg)");
+                txt = "伊路贊分局長趕忙離開了，不過遺下了手機！";
+                break;
+            
+        case 6:
+              txt = "你不是有意偷看，但你的眼睛的確看到手機裡的聊天室。";
+                break;
+        
+        
+        case 7:
+                txt = "你不是刻意去消化聊天室內容的！但！你的腦子轉得太快了，真是太厲害啦！";
+                break;
+    
+        case 8:
+              txt = "簡單結論就是，有人謠言在倫敦看到疑似卡魯普斯的人";
+                break;
+        
+            
+        case 9:
+              txt = "要不要去一探究竟呢。";
+                break;
+        
+        
+        case 10:
+            txt = " "; 
+            $("#b1, #b2").show();
+            $("#wordings").hide();
+
+                break;
+        
+        }
+        
+  		      progress++;
+		        $('#wordings').html(txt);
+		  }
+
+            
+		$('#wordings').click(eventHandler);
+            
+        })
+    </script>
+
+</head>
+<body>
+
+
+<div id="box" class="noselect">
+    
+    <a href="chick.html"><div id= "b1">
+        去
+        </div></a>
+    
+    <a href="canteen.html"><div id= "b2">
+        不去
+        </div></a>
+    
+    <div id="wordings">
+  
+         歡迎！
+
+    </div>
+    
+    
+</div>
+
+    </body>
+</html>

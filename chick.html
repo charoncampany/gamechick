@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>與卡魯普斯的一天</title>
+<script src="jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="talk.css">
+          <style>
+    #box{
+        background-image: url(night.jpg);
+    }
+        
+    </style>     
+    <script>
+        $(document).ready(function() {
+
+            
+var progress = 0;
+var txt;
+            
+    function eventHandler() {
+    switch (progress) {
+            
+		case 0:
+                txt = "看來傳言只是傳言吧！";
+                break;
+            
+  		case 1:
+            txt = "倫敦逛了大半天，都晚上了，感覺有點想吃東西，旁邊就是快餐店，進去吧！";
+             break;
+        
+        case 2:
+            $("#box").css("background-image","url(kfc.jpg)");
+            txt = "「請問要點甚麼？」"
+                break;
+            
+        case 3:
+            txt = " ";
+            $("#b1, #b2, #b3").show();
+            $("#wordings").hide();
+            $('#b1').mouseenter(passwordop);
+            $('#b2').mouseenter(silentop);
+            $('#b3').mouseenter(orderop);
+            
+            function orderop(){             
+             $('#b3').click(eventHandler);
+            progress = 8;
+            }
+            
+            function silentop(){
+            $('#b2').click(eventHandler);
+            progress = 4;
+            }
+            
+            function passwordop(){
+            $('#b1').click(eventHandler);
+            progress = 4;
+            }
+            
+            
+            break;
+            
+        case 4:
+            $("#wordings").show();
+            $("#b1, #b2, #b3").hide();
+                txt = "「……」";
+                break;
+            
+  		case 5:
+                txt = "「哈利！你來接一下力！」";
+                break;
+            
+        case 6:
+            $("#box").css("background-image","url(kfcee.jpg)");
+              txt = "卡魯普斯跑掉了！你決定追下去！";
+                break;
+            
+        case 7:
+              window.location = "backdoor.html";
+                break;
+        
+        
+        case 8:
+            $("#wordings").show();
+            $("#b1, #b2, #b3").hide();
+                txt = "「好的，還有嗎？」";
+                break;
+    
+        case 9:
+            txt = "「多謝光顧！」";
+                break;
+                          
+        case 10:
+            $("#box").css("background-image","url(night.jpg)");
+            txt = "人界的快餐很好吃呢！（完）"
+                break;
+        
+        case 11:
+            window.location="index.html";
+            break;
+        }
+        
+  		      progress++;
+		        $('#wordings').html(txt);
+		  }
+
+            
+		$('#wordings').click(eventHandler);
+            
+        })
+    </script>
+
+</head>
+<body>
+
+
+<div id="box" class="noselect">
+    
+    <div id= "b1">
+        花蜜雞腿
+    </div>
+    
+    <div id= "b2">
+        ……
+    </div>
+    
+    <div id= "b3">
+        一份套餐A
+    </div>
+    
+    <div id="wordings">
+  
+         來到了倫敦。
+
+    </div>
+    
+    
+</div>
+
+    </body>
+</html>

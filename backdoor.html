@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>與卡魯普斯的一天</title>
+<script src="jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="talk.css">
+          <style>
+    #box{
+        background-image: url(ally.jpg);
+    }
+        
+    </style>     
+    <script>
+        $(document).ready(function() {
+
+            
+var progress = 0;
+var txt;
+            
+    function eventHandler() {
+    switch (progress) {
+            
+		case 0:
+                txt = "卡魯普斯面色不善。";
+                break;
+            
+  		case 1:
+            txt = " ";
+            $("#b1, #b2").show();
+            $("#wordings").hide();
+            $('#b1').mouseenter(skip);
+            $('#b2').mouseenter(nonskip);
+                
+            function skip(){              $('#b1').click(eventHandler);
+            progress = 2;
+            }
+            
+            function nonskip(){
+            $('#b2').click(eventHandler);
+            progress = 5;
+            }
+             break;
+        
+        case 2:
+            $("#wordings").show();
+            $("#b1, #b2").hide();
+            txt = "「為甚麼我不能？」"
+                break;
+            
+        case 3:
+                txt = "感覺雞同鴨講，決定走人（完）";
+                break;
+            
+        case 4:
+                window.location = "index.html";
+                break;
+            
+  		case 5:
+            $("#wordings").show();
+            $("#b1, #b2").hide();
+                txt = "「……」";
+                break;
+            
+        case 6:
+              txt = "「我沒說過想回來……算了。」";
+                break;
+        
+        
+        case 7:
+                txt = "這個卡魯普斯怪怪的，你好心地問他：「你還好嗎？」";
+                break;
+    
+        case 8:
+              txt = "「我很好，謝謝。」";
+                break;
+        
+            
+        case 9:
+              txt = "「你回去吧。」";
+                break;
+        
+        
+        case 10:
+            $("#box").css("background-image","url(night.jpg)");
+              txt = "倫敦的一天結束了。";
+                break;
+            
+        case 11:
+            window.location="index.html";
+                break;
+        
+        }
+        
+  		      progress++;
+		        $('#wordings').html(txt);
+		  }
+
+            
+		$('#wordings').click(eventHandler);
+            
+        })
+    </script>
+
+</head>
+<body>
+
+
+<div id="box" class="noselect">
+    
+    <div id= "b1">
+        為甚麼要跑？
+    </div>
+    
+    <div id= "b2">
+        告訴他大家為了他很辛苦
+    </div>
+    
+    <div id="wordings">
+  
+         幾經辛苦，卡魯普斯就在眼前。
+
+    </div>
+    
+    
+</div>
+
+    </body>
+</html>
